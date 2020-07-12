@@ -30,10 +30,10 @@ C     helium-4, and lithium-7 for eventual plotting, taking into account
 C     the contribution of beryllium-7 to lithium-7 and tritium to helium-3.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. - Ninja
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
-      PARAMETER (itmax=200)         !Maximum # of lines to be printed.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (itmax=200)         !Maximum # of lines to be printed. Ninja
 
 C----------COMMON AREAS.
       COMMON /recpr0/ reacpr                         !Reaction parameter values.

@@ -21,7 +21,7 @@ C     Runge-Kutta computational routine
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (cl=1.e-16)        !Lower limit on size of time step.
 
 C----------COMMON AREAS.
@@ -180,8 +180,8 @@ C----------REMARKS.
 C     Sets initial conditions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. Ninja
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (const1=0.09615)   !Relation between time and temperature.
       PARAMETER (const2=6.6700e-8) !Gravitational constant.
 
@@ -381,7 +381,7 @@ C       - abundances
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (pi=3.141593)
 
 C----------COMMON AREAS.
@@ -537,8 +537,8 @@ C     Output accumulator.
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
-      PARAMETER (itmax=200)         !Maximum # of lines to be printed.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (itmax=200)         !Maximum # of lines to be printed. Ninja
 
 C----------COMMON AREAS.         
       COMMON /evolp1/ t9,hv,phie,y                   !Evolution parameters.
@@ -645,7 +645,7 @@ C----------REMARKS.
 C     Computes various temperature dependent thermodynamic quantities.
 
 C----------PARAMETER.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (q=2.531)          !(mass(neutron)-mass(proton))/m(electron)
 
 C----------COMMON AREAS.         
@@ -1436,8 +1436,8 @@ C     Fills and solves matrix equation for dydt(i).
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number.
       PARAMETER (iw=6)             !Output unit number.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. Ninja
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
 
 C-----------COMMON AREAS.
       COMMON /recpr/  iform,ii,jj,kk,ll,rev,q9       !Reaction parameters names.
@@ -1509,7 +1509,7 @@ C----------EVOLUTION EQUATION COEFFICIENTS.
 
 C----------LOCAL VARIABLES.
       REAL    yy(nnuc)             !Abundances at end of iteration.
-      REAL    si(12),sj(12),sk(12),sl(12)  !# of nuclide i,j,k,l
+      REAL    si(12),sj(12),sk(12),sl(12)  !# of nuclide i,j,k,l - Ninja
       REAL    bdln                 !(10**(-5))*volume expansion rate.
       INTEGER ind                  !Equate to iform.
       INTEGER ierror               !Element which does not converge.
@@ -1518,10 +1518,10 @@ C----------LOCAL VARIABLES.
 C==============================DATA DIVISION====================================
 
 C----------NUMBER OF NUCLIDES IN REACTION TYPES 1-12.  12th added by Ninja
-      DATA si /1.,1.,1.,1.,1.,2.,3.,2.,1.,1.,2.,1./
-      DATA sj /0.,1.,1.,0.,1.,0.,0.,1.,1.,1.,0.,2./
-      DATA sk /0.,0.,1.,0.,0.,1.,0.,0.,1.,0.,2.,2./
-      DATA sl /1.,1.,1.,2.,2.,1.,1.,1.,2.,3.,1.,1./
+      DATA si /1.,1.,1.,1.,1.,2.,3.,2.,1.,1.,2.,1./  ! Ninja
+      DATA sj /0.,1.,1.,0.,1.,0.,0.,1.,1.,1.,0.,2./  ! Ninja
+      DATA sk /0.,0.,1.,0.,0.,1.,0.,0.,1.,0.,2.,2./  ! Ninja
+      DATA sl /1.,1.,1.,2.,2.,1.,1.,1.,2.,3.,1.,1./  ! Ninja
 
 
 C===========================PROCEDURE DIVISION==================================
@@ -1555,13 +1555,13 @@ C..........EQUATE VARIABLES TO ARRAYS.
           rk = sk(ind)             !# of outgoing nuclide k.
           rl = sl(ind)             !# of outgoing nuclide l.
 C..........COMPUTE DIFFERENT REACTION RATES.
-          GO TO (201,202,203,204,205,206,207,208,209,210,211,212),ind
+          GO TO (201,202,203,204,205,206,207,208,209,210,211,212),ind ! Ninja
  201      CONTINUE                 !1-0-0-1 configuration.
             ci = f(n)              !(Ref 1).
             cj = 0.
             ck = 0.
             cl = r(n)
-            GO TO 213
+            GO TO 213 ! Ninja
  202      CONTINUE                 !1-1-0-1 configuration.
             r(n) = rev(n)*1.e+10*t932*ex(-q9(n)/t9)*f(n)  !(Ref 2).
             f(n) = rhob*f(n)
@@ -1569,7 +1569,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = r(n)
-            GO TO 213
+            GO TO 213 ! Ninja
  203      CONTINUE                 !1-1-1-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1577,13 +1577,13 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = y(l)*r(n)/2.
             cl = y(k)*r(n)/2.
-            GO TO 213
+            GO TO 213 ! Ninja
  204      CONTINUE                 !1-0-0-2 configuration.
             ci = f(n)
             cj = 0.
             ck = 0.
             cl = y(l)*r(n)/2.
-            GO TO 213
+            GO TO 213 ! Ninja
  205      CONTINUE                 !1-1-0-2 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1591,7 +1591,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = y(l)*r(n)/2.
-            GO TO 213
+            GO TO 213 ! Ninja
  206      CONTINUE                 !2-0-1-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1599,7 +1599,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = y(l)*r(n)/2.
             cl = y(k)*r(n)/2.
-            GO TO 213
+            GO TO 213 ! Ninja
  207      CONTINUE                 !3-0-0-1 configuration.
             r(n) = rev(n)*1.e+20*t932*t932*ex(-q9(n)/t9)*f(n)  !(Ref 4).
             f(n) = rhob*rhob*f(n)
@@ -1607,7 +1607,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = 0.
             cl = r(n)
-            GO TO 213
+            GO TO 213 ! Ninja
  208      CONTINUE                 !2-1-0-1 configuration.
             r(n) = rev(n)*1.e+20*t932*t932*ex(-q9(n)/t9)*f(n)  !(Ref 4).
             f(n) = rhob*rhob*f(n)
@@ -1615,7 +1615,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*y(i)*f(n)/6.
             ck = 0.
             cl = r(n)
-            GO TO 213
+            GO TO 213 ! Ninja
  209      CONTINUE                 !1-1-1-2 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1623,7 +1623,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = y(l)*y(l)*r(n)/6.
             cl = y(k)*y(l)*r(n)/3.
-            GO TO 213
+            GO TO 213 ! Ninja
  210      CONTINUE                 !1-1-0-3 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1631,7 +1631,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = y(l)*y(l)*r(n)/6.
-            GO TO 213
+            GO TO 213 ! Ninja
  211      CONTINUE                 !2-0-2-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1639,8 +1639,8 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = y(l)*y(k)*r(n)/3.
             cl = y(k)*y(k)*r(n)/6.
-            GO TO 213
- 212      CONTINUE                 !1-2-2-1 configuration.
+            GO TO 213 ! Ninja
+ 212      CONTINUE                 !1-2-2-1 configuration. - Ninja
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
             ci = y(i)*f(n)/2.
@@ -1765,7 +1765,7 @@ C     Solves for new abundances using gaussian elimination
 C     with back substitution, no pivoting.
 
 C----------PARAMETERS.
-      PARAMETER (nnuc=27)          !Rank of matrix.
+      PARAMETER (nnuc=27)          !Rank of matrix. - Ninja
       PARAMETER (mord=1)           !Higher order in correction.
       PARAMETER (eps=2.e-4)        !Tolerance for convergence (.ge. 1.e-7).
 

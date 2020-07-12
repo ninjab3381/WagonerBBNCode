@@ -39,8 +39,8 @@ C       Version 4.1 (December 1991)
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. - Ninja
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. - Ninja
 
 C----------COMMON AREAS.
       COMMON /recpr0/ reacpr                         !Reaction parameter values.
@@ -1085,10 +1085,10 @@ C     Activates computation routine.
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. - Ninja
       PARAMETER (lrec=64)          !Total # of nuclear reactions for irun = 2.
       PARAMETER (krec=34)          !Total # of nuclear reactions for irun = 3.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (lnuc=18)          !Total # of nuclides for irun = 2.
       PARAMETER (knuc=9)           !Total # of nuclides for irun = 3.
 
@@ -1184,7 +1184,7 @@ C21--------SET RUN NETWORK SECTION----------------------------------------------
 
  210  CONTINUE
         WRITE (iw,2100)
- 2100   FORMAT (' ','Enter network size (1-27 nuclides (default); ',
+ 2100   FORMAT (' ','Enter network size (1-27 nuclides (default); ', ! Ninja
      |              '2-18; 3-9): ',$)
         READ (ir,*) inumb          !Read in selection number.
         IF ((inumb.ne.1).and.(inumb.ne.2).and.(inumb.ne.3)) inumb = 1  !Default.
@@ -1399,8 +1399,8 @@ C     the screen
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
-      PARAMETER (itmax=200)         !Maximum # of line to be printed.
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (itmax=200)         !Maximum # of line to be printed. Ninja
 
 C----------COMMON AREAS.
       COMMON /compr/  cy,ct,t9i,t9f,ytmin,inc        !Computation parameters.

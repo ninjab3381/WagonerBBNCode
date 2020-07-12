@@ -16,7 +16,7 @@ C----------REMARKS.
 C     Generates weak decay rates.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
 
 C----------COMMON AREA.
       COMMON /rates/  f,r    !Reaction rates.
@@ -86,7 +86,7 @@ C----------REMARKS.
 C     Generates rate coefficients for weak n->p and p->n reactions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
       PARAMETER (iter=50)          !Number of gaussian quads.
 
 C----------COMMON AREAS.
@@ -198,8 +198,8 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 9.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions.   (Ninja)
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /rates/  f,r           !Reaction rates.
@@ -392,8 +392,8 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 18.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /rates/  f,r           !Reaction rates.
@@ -806,8 +806,8 @@ C========================IDENTIFICATION DIVISION================================
       BLOCK DATA   
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /recpr0/ reacpr                         !Reaction parameter values.
@@ -860,13 +860,13 @@ C    6) He4      12) Be9      18) N12      24) N15
 
 C-----------NUCLIDE DATA.
       DATA am /1.,1.,2.,3.,3.,4.,6.,7.,7.,8.,8.,9.,10.,11.,11.,12.,
-     |         12.,12.,13.,13.,14.,14.,14.,15.,15.,16.,5./
+     |         12.,12.,13.,13.,14.,14.,14.,15.,15.,16.,5./ ! Ninja
       DATA zm /0.,1.,1.,1.,2.,2.,3.,3.,4.,3.,5.,4.,5.,5.,6.,5.,
-     |         6.,7.,6.,7.,6.,7.,8.,7.,8.,8.,3./
+     |         6.,7.,6.,7.,6.,7.,8.,7.,8.,8.,3./ ! Ninja
       DATA dm /.008665,.007825,.014102,.016050,.016030,.002603,.015125,
      |         .016004,.016929,.022487,.024609,.012186,.012939,.009305,
      |         .011432,.014354,.000000,.018641,.003354,.005738,.003242,
-     |         .003074,.008597,.000108,.003070,-.005085,.01054/
+     |         .003074,.008597,.000108,.003070,-.005085,.01054/ ! Ninja
 
 C----------REACTION RATE COEFFICIENTS (Ref 1).
       DATA ((reacpr(i,j),j=1,8),i=1,11) /
@@ -982,7 +982,7 @@ C              ----  ---- -- -- -- -- --------- -------
      |            87.,3.,16.,6.,1.,24., 4.25 ,  88.47,     !B12(a,n)N15  
      |            88.,3.,19.,6.,1.,26., 5.79 ,  25.711/    !C13(a,n)O16
 
-      DATA ((reacpr(i,j),j=1,8),i=89,91) /
+      DATA ((reacpr(i,j),j=1,8),i=89,91) / ! Ninja
 C              reac# type n1 n2 n3 n4 rev-coeff q-value
 C              ----  ---- -- -- -- -- --------- -------
      |            89.,5., 6.,2.,0.,27., 0.68 ,   7.23,      ! He+(H,γ)HeH+
@@ -993,7 +993,7 @@ C----------DEFAULT COMPUTATION PARAMETERS.
       DATA cy0    /.300/           !Default time step limiting constant.
       DATA ct0    /.030/           !Default time step limiting constant.
       DATA t9i0   /1.00e+02/       !Default initial temperature.
-      DATA t9f0   /1.00e-04/       !Default final temperature.
+      DATA t9f0   /1.00e-09/       !Default final temperature. Ninja
       DATA ytmin0 /1.00e-25/       !Default smallest abundances allowed.
       DATA inc0   /30/             !Default accumulation increment.
 C-----------DEFAULT MODEL PARAMETERS.
@@ -1003,7 +1003,7 @@ C-----------DEFAULT MODEL PARAMETERS.
 
 C-----------DEFAULT VARIATIONAL PARAMETERS.
       DATA dt0    /1.00e-04/       !Default initial time step.
-      DATA eta0   /6.14e-10/       !Default baryon-to-photon ratio.
+      DATA eta0   /6.14e-10/       !Default baryon-to-photon ratio. Ninja
 
       END
 
