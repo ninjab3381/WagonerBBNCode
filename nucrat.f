@@ -16,7 +16,7 @@ C----------REMARKS.
 C     Generates weak decay rates.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=92)          !Number of nuclear reactions. (Ninja)
 
 C----------COMMON AREA.
       COMMON /rates/  f,r    !Reaction rates.
@@ -86,7 +86,7 @@ C----------REMARKS.
 C     Generates rate coefficients for weak n->p and p->n reactions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=92)          !Number of nuclear reactions. (Ninja)
       PARAMETER (iter=50)          !Number of gaussian quads.
 
 C----------COMMON AREAS.
@@ -198,7 +198,7 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 9.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.   (Ninja)
+      PARAMETER (nrec=92)          !Number of nuclear reactions.   (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -392,7 +392,7 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 18.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=92)          !Number of nuclear reactions. (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -608,7 +608,7 @@ C----------REMARKS.
 C     Generates rate coefficients for rest of reactions.
 
 C----------PARAMETER.
-      PARAMETER (nrec=91)          !Number of nuclear reactions.
+      PARAMETER (nrec=92)          !Number of nuclear reactions.
       PARAMETER (nnuc=27)          !Number of nuclides in calculation.
 
 C----------COMMON AREAS.
@@ -790,6 +790,10 @@ C........He(H+,γ)HeH+.........Added by Ninja
 C........He(H2+,H)HeH+.........Added by Ninja
        f(91) = 3.0e-10 * (t9/300)**(0) * ex(-t9/6720)
 
+C........H2(p,γ)H3+.........Added by Ninja
+       f(92) = 1.0e-16
+
+
       RETURN
 
 C----------REFERENCES-----------------------------------------------------------
@@ -806,7 +810,7 @@ C========================IDENTIFICATION DIVISION================================
       BLOCK DATA   
 
 C----------PARAMETERS.
-      PARAMETER (nrec=91)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=92)          !Number of nuclear reactions. (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -982,12 +986,13 @@ C              ----  ---- -- -- -- -- --------- -------
      |            87.,3.,16.,6.,1.,24., 4.25 ,  88.47,     !B12(a,n)N15  
      |            88.,3.,19.,6.,1.,26., 5.79 ,  25.711/    !C13(a,n)O16
 
-      DATA ((reacpr(i,j),j=1,8),i=89,91) / ! Ninja
+      DATA ((reacpr(i,j),j=1,8),i=89,92) / ! Ninja
 C              reac# type n1 n2 n3 n4 rev-coeff q-value
 C              ----  ---- -- -- -- -- --------- -------
      |            89.,5., 6.,2.,0.,27., 0.68 ,   7.23,      ! He+(H,γ)HeH+
      |            90.,5., 6.,2.,0.,27., 0.68 ,   7.23,      ! He(H+,γ)HeH+
-     |            91.,12.,6.,3.,2.,27., 0.68 ,   7.23/      ! He(H2+,H)HeH+
+     |            91.,12.,6.,3.,2.,27., 0.68 ,   7.23,      ! He(H2+,H)HeH+
+     |            92.,12.,3.,2.,0.,27., 0.68 ,   7.23/      ! H2(p,γ)H3+
 
 C----------DEFAULT COMPUTATION PARAMETERS.
       DATA cy0    /.300/           !Default time step limiting constant.

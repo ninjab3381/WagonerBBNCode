@@ -39,7 +39,7 @@ C       Version 4.1 (December 1991)
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=91)          !Number of nuclear reactions. - Ninja
+      PARAMETER (nrec=92)          !Number of nuclear reactions. - Ninja
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. - Ninja
 
 C----------COMMON AREAS.
@@ -171,7 +171,7 @@ C..........SET RUN OPTIONS TO DEFAULT.
       END DO
       irun       = 1               !Do full run.
       isize      = nnuc            !Use all 27 nuclides.
-      jsize      = nrec            !Use all 91 reactions.
+      jsize      = nrec            !Use all 92 reactions.
 C..........SET OUTPUT OPTION TO DEFAULT.
       nout    = 0                  !No output requests.
       outfile = .false.            !Output file not used.
@@ -425,7 +425,7 @@ C23--------RUN PROGRAM SECTION--------------------------------------------------
      |              'ce variations are with regard to a      ',/,
      |          ' ','   single run with all default parameter',
      |              ' values.                                ',/,
-     |          ' ','    A. 27 nuclides, 91 reactions (defaul',
+     |          ' ','    A. 27 nuclides, 92 reactions (defaul',
      |              't)                                      ',/,
      |          ' ','       nuclides from n to O16           ',/,
      |          ' ','    B. 18 nuclides, 60 reactions        ',/,
@@ -1085,7 +1085,7 @@ C     Activates computation routine.
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=91)          !Number of nuclear reactions. - Ninja
+      PARAMETER (nrec=92)          !Number of nuclear reactions. - Ninja
       PARAMETER (lrec=64)          !Total # of nuclear reactions for irun = 2.
       PARAMETER (krec=34)          !Total # of nuclear reactions for irun = 3.
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
