@@ -180,7 +180,7 @@ C----------REMARKS.
 C     Sets initial conditions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=92)          !Number of nuclear reactions. Ninja
+      PARAMETER (nrec=94)          !Number of nuclear reactions. Ninja
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (const1=0.09615)   !Relation between time and temperature.
       PARAMETER (const2=6.6700e-8) !Gravitational constant.
@@ -1436,7 +1436,7 @@ C     Fills and solves matrix equation for dydt(i).
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number.
       PARAMETER (iw=6)             !Output unit number.
-      PARAMETER (nrec=92)          !Number of nuclear reactions. Ninja
+      PARAMETER (nrec=94)          !Number of nuclear reactions. Ninja
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
 
 C-----------COMMON AREAS.
@@ -1456,7 +1456,7 @@ C-----------COMMON AREAS.
 C==========================DECLARATION DIVISION=================================
 
 C----------REACTION PARAMETERS.
-      INTEGER iform(nrec)          !Reaction code number (1-92).
+      INTEGER iform(nrec)          !Reaction code number (1-93).
       INTEGER ii(nrec)             !Incoming nuclide type (1-27).
       INTEGER jj(nrec)             !Incoming light nuclide type (1-6).
       INTEGER kk(nrec)             !Outgoing light nuclide type (1-6).
@@ -1509,7 +1509,7 @@ C----------EVOLUTION EQUATION COEFFICIENTS.
 
 C----------LOCAL VARIABLES.
       REAL    yy(nnuc)             !Abundances at end of iteration.
-      REAL    si(12),sj(12),sk(12),sl(12)  !# of nuclide i,j,k,l - Ninja
+      REAL    si(11),sj(11),sk(11),sl(11)  !# of nuclide i,j,k,l
       REAL    bdln                 !(10**(-5))*volume expansion rate.
       INTEGER ind                  !Equate to iform.
       INTEGER ierror               !Element which does not converge.
@@ -1517,11 +1517,11 @@ C----------LOCAL VARIABLES.
 
 C==============================DATA DIVISION====================================
 
-C----------NUMBER OF NUCLIDES IN REACTION TYPES 1-12.  12th added by Ninja
-      DATA si /1.,1.,1.,1.,1.,2.,3.,2.,1.,1.,2.,1./  ! Ninja
-      DATA sj /0.,1.,1.,0.,1.,0.,0.,1.,1.,1.,0.,2./  ! Ninja
-      DATA sk /0.,0.,1.,0.,0.,1.,0.,0.,1.,0.,2.,2./  ! Ninja
-      DATA sl /1.,1.,1.,2.,2.,1.,1.,1.,2.,3.,1.,1./  ! Ninja
+C----------NUMBER OF NUCLIDES IN REACTION TYPES 1-11. 
+      DATA si /1.,1.,1.,1.,1.,2.,3.,2.,1.,1.,2./  
+      DATA sj /0.,1.,1.,0.,1.,0.,0.,1.,1.,1.,0./  
+      DATA sk /0.,0.,1.,0.,0.,1.,0.,0.,1.,0.,2./  
+      DATA sl /1.,1.,1.,2.,2.,1.,1.,1.,2.,3.,1./  
 
 
 C===========================PROCEDURE DIVISION==================================
