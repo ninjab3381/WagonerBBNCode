@@ -1555,13 +1555,13 @@ C..........EQUATE VARIABLES TO ARRAYS.
           rk = sk(ind)             !# of outgoing nuclide k.
           rl = sl(ind)             !# of outgoing nuclide l.
 C..........COMPUTE DIFFERENT REACTION RATES.
-          GO TO (201,202,203,204,205,206,207,208,209,210,211,212),ind ! Ninja
+          GO TO (201,202,203,204,205,206,207,208,209,210,211),ind
  201      CONTINUE                 !1-0-0-1 configuration.
             ci = f(n)              !(Ref 1).
             cj = 0.
             ck = 0.
             cl = r(n)
-            GO TO 213 ! Ninja
+            GO TO 212
  202      CONTINUE                 !1-1-0-1 configuration.
             r(n) = rev(n)*1.e+10*t932*ex(-q9(n)/t9)*f(n)  !(Ref 2).
             f(n) = rhob*f(n)
@@ -1569,7 +1569,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = r(n)
-            GO TO 213 ! Ninja
+            GO TO 212
  203      CONTINUE                 !1-1-1-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1577,13 +1577,13 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = y(l)*r(n)/2.
             cl = y(k)*r(n)/2.
-            GO TO 213 ! Ninja
+            GO TO 212
  204      CONTINUE                 !1-0-0-2 configuration.
             ci = f(n)
             cj = 0.
             ck = 0.
             cl = y(l)*r(n)/2.
-            GO TO 213 ! Ninja
+            GO TO 212
  205      CONTINUE                 !1-1-0-2 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1591,7 +1591,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = y(l)*r(n)/2.
-            GO TO 213 ! Ninja
+            GO TO 212
  206      CONTINUE                 !2-0-1-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*ex(-q9(n)/t9)*f(n)  !(Ref 3).
@@ -1599,7 +1599,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = y(l)*r(n)/2.
             cl = y(k)*r(n)/2.
-            GO TO 213 ! Ninja
+            GO TO 212
  207      CONTINUE                 !3-0-0-1 configuration.
             r(n) = rev(n)*1.e+20*t932*t932*ex(-q9(n)/t9)*f(n)  !(Ref 4).
             f(n) = rhob*rhob*f(n)
@@ -1607,7 +1607,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = 0.
             cl = r(n)
-            GO TO 213 ! Ninja
+            GO TO 212
  208      CONTINUE                 !2-1-0-1 configuration.
             r(n) = rev(n)*1.e+20*t932*t932*ex(-q9(n)/t9)*f(n)  !(Ref 4).
             f(n) = rhob*rhob*f(n)
@@ -1615,7 +1615,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*y(i)*f(n)/6.
             ck = 0.
             cl = r(n)
-            GO TO 213 ! Ninja
+            GO TO 212
  209      CONTINUE                 !1-1-1-2 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1623,7 +1623,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = y(l)*y(l)*r(n)/6.
             cl = y(k)*y(l)*r(n)/3.
-            GO TO 213 ! Ninja
+            GO TO 212
  210      CONTINUE                 !1-1-0-3 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1631,7 +1631,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = y(i)*f(n)/2.
             ck = 0.
             cl = y(l)*y(l)*r(n)/6.
-            GO TO 213 ! Ninja
+            GO TO 212
  211      CONTINUE                 !2-0-2-1 configuration.
             f(n) = rhob*f(n)
             r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
@@ -1639,15 +1639,7 @@ C..........COMPUTE DIFFERENT REACTION RATES.
             cj = 0.
             ck = y(l)*y(k)*r(n)/3.
             cl = y(k)*y(k)*r(n)/6.
-            GO TO 213 ! Ninja
- 212      CONTINUE                 !1-2-2-1 configuration. - Ninja
-            f(n) = rhob*f(n)
-            r(n) = rev(n)*1.e-10*t9m32*rhob*ex(-q9(n)/t9)*f(n)  !(Ref 5).
-            ci = y(i)*f(n)/2.
-            cj = y(j)*f(n)/2.
-            ck = y(l)*y(k)*r(n)/3.
-            cl = y(k)*y(k)*r(n)/6.
- 213      CONTINUE
+ 212      CONTINUE
 
 C30--------CONSTRUCT THE A-MATRIX-----------------------------------------------
 
