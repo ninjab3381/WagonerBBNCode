@@ -16,7 +16,7 @@ C----------REMARKS.
 C     Generates weak decay rates.
 
 C----------PARAMETER.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
 
 C----------COMMON AREA.
       COMMON /rates/  f,r    !Reaction rates.
@@ -86,7 +86,7 @@ C----------REMARKS.
 C     Generates rate coefficients for weak n->p and p->n reactions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
       PARAMETER (iter=50)          !Number of gaussian quads.
 
 C----------COMMON AREAS.
@@ -198,7 +198,7 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 9.
 
 C----------PARAMETER.
-      PARAMETER (nrec=94)          !Number of nuclear reactions.   (Ninja)
+      PARAMETER (nrec=95)          !Number of nuclear reactions.   (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -393,7 +393,7 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 18.
 
 C----------PARAMETER.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -609,7 +609,7 @@ C----------REMARKS.
 C     Generates rate coefficients for rest of reactions.
 
 C----------PARAMETER.
-      PARAMETER (nrec=94)          !Number of nuclear reactions.
+      PARAMETER (nrec=95)          !Number of nuclear reactions.
       PARAMETER (nnuc=27)          !Number of nuclides in calculation.
 
 C----------COMMON AREAS.
@@ -784,8 +784,6 @@ C.......C13(a,n)O16................(Caughlan-Fowler 1988)
 
 C........He+(H,γ)HeH+.........Added by Ninja
        f(89) = 4.16e-16*((t9/300)**(-0.37))*ex(-t9/87600)   ! He+(h,γ)HeH+
-      !         + 8.0e-20*((t9/300)**(-0.24))*ex(-t9/4000)   ! He+(p,γ)HeH+
-      !         + 1.5E-20*ex(-200*t9m1)                      ! He+(pγ,2γ)HeH+
 
 C........H2(p,γ)H3+.........Added by Ninja
        f(90) = 1.0e-16
@@ -794,15 +792,16 @@ C........HeH(d,He)H3+.........Added by Ninja
        f(91) = 1.53e-9*((t9/300)**(0.24))*ex(-t9/14800)
        
 C........He(H2+,H)HeH+.........Added by Ninja
-       f(92) = 3.0e-10*ex(-6717*t9m1)
+       f(92) = 3.0e-10*ex(-6720*t9m1)
 
 C........He+(p,γ)HeH+.........Added by Ninja
        f(93) = 8.0e-20*((t9/300)**(-0.24))*ex(-t9/4000)   ! He+(p,γ)HeH+
      
 C........He+(pγ,2γ)HeH+.........Added by Ninja
-       f(94) = 1.5E-20*ex(-200*t9m1)                      ! He+(pγ,2γ)HeH+
+       f(94) = 1.5e-20*ex(-200*t9m1)                      ! He+(pγ,2γ)HeH+
 
-
+C........H2(p,e-)H3+.........Added by Ninja
+       f(95) = 4.7e-9*((t9/300)**(-0.5))
 
       RETURN
 
@@ -820,7 +819,7 @@ C========================IDENTIFICATION DIVISION================================
       BLOCK DATA   
 
 C----------PARAMETERS.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
@@ -996,15 +995,16 @@ C              ----  ---- -- -- -- -- --------- -------
      |            87.,3.,16.,6.,1.,24., 4.25 ,  88.47,     !B12(a,n)N15  
      |            88.,3.,19.,6.,1.,26., 5.79 ,  25.711/    !C13(a,n)O16
 
-      DATA ((reacpr(i,j),j=1,8),i=89,94) / ! Ninja
+      DATA ((reacpr(i,j),j=1,8),i=89,95) / ! Ninja
 C              reac# type n1 n2 n3 n4 rev-coeff q-value
 C              ----  ---- -- -- -- -- --------- -------
-     |            89.,2., 6.,2.,0.,27., 20.68 ,   77.23,      ! He+(H,γ)HeH+
-     |            90.,2., 3.,2.,0., 4., 10.68 ,   77.23,      ! H2(p,γ)H3+
-     |            91.,3.,27.,3.,6., 4., 10.68 ,   77.23,      ! HeH(d,He)H3+
-     |            92.,3., 6.,3.,2.,27., 20.68 ,   77.23,      ! He(H2+,H)HeH+
-     |            93.,2., 6.,2.,0.,27., 20.68 ,   77.23,      ! He+(p,γ)HeH+
-     |            94.,2., 6.,2.,0.,27., 20.68 ,   77.23/      ! He+(pγ,2γ)HeH+
+     |            89.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(H,γ)HeH+
+     |            90.,2., 3.,2.,0., 4.,     0 ,   77.23,      ! H2(p,γ)H3+
+     |            91.,3.,27.,3.,6., 4.,     0 ,   77.23,      ! HeH(d,He)H3+
+     |            92.,3., 6.,3.,2.,27.,     0 ,   77.23,      ! He(H2+,H)HeH+
+     |            93.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(p,γ)HeH+
+     |            94.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(pγ,2γ)HeH+
+     |            95.,2., 3.,2.,0., 4.,     0 ,   77.23/      ! H2(p,e-)H3+
 
 C----------DEFAULT COMPUTATION PARAMETERS.
       DATA cy0    /.300/           !Default time step limiting constant.

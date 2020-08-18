@@ -180,7 +180,7 @@ C----------REMARKS.
 C     Sets initial conditions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. Ninja
+      PARAMETER (nrec=95)          !Number of nuclear reactions. Ninja
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
       PARAMETER (const1=0.09615)   !Relation between time and temperature.
       PARAMETER (const2=6.6700e-8) !Gravitational constant.
@@ -1436,7 +1436,7 @@ C     Fills and solves matrix equation for dydt(i).
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number.
       PARAMETER (iw=6)             !Output unit number.
-      PARAMETER (nrec=94)          !Number of nuclear reactions. Ninja
+      PARAMETER (nrec=95)          !Number of nuclear reactions. Ninja
       PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
 
 C-----------COMMON AREAS.
