@@ -16,7 +16,7 @@ C----------REMARKS.
 C     Generates weak decay rates.
 
 C----------PARAMETER.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=123)          !Number of nuclear reactions. (Ninja)
 
 C----------COMMON AREA.
       COMMON /rates/  f,r    !Reaction rates.
@@ -86,7 +86,7 @@ C----------REMARKS.
 C     Generates rate coefficients for weak n->p and p->n reactions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nrec=123)          !Number of nuclear reactions. (Ninja)
       PARAMETER (iter=50)          !Number of gaussian quads.
 
 C----------COMMON AREAS.
@@ -198,8 +198,8 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 9.
 
 C----------PARAMETER.
-      PARAMETER (nrec=95)          !Number of nuclear reactions.   (Ninja)
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
+      PARAMETER (nrec=123)          !Number of nuclear reactions.   (Ninja)
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /rates/  f,r           !Reaction rates.
@@ -343,7 +343,7 @@ C.......H2(d,n)He3.................(Smith-Kawano-Malaney 1992)
 C.......H2(d,p)H3..................(Smith-Kawano-Malaney 1992)
       f(29)  = 4.17e+8*t9m23*ex(-4.258/t913)
      |         *(1.+.098*t913+.518*t923+.355*t9-.010*t943-.018*t953)
-               ! 2.24E-9*((t9/300)**(0.042))*ex(-t9/46600)
+      ! f(29) = 2.24e-9*((t9/300)**(0.042))*ex(-t9/46600)
 
 C.......H3(d,n)He4.................(Smith-Kawano-Malaney 1992)
       f(30)  = 1.063e+11*t9m23*ex(-4.559/t913-(t9/.0754)**2)
@@ -393,8 +393,8 @@ C     Generates rate coefficients for reactions involving nuclides
 C     up to A = 18.
 
 C----------PARAMETER.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
+      PARAMETER (nrec=123)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /rates/  f,r           !Reaction rates.
@@ -609,8 +609,8 @@ C----------REMARKS.
 C     Generates rate coefficients for rest of reactions.
 
 C----------PARAMETER.
-      PARAMETER (nrec=95)          !Number of nuclear reactions.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation.
+      PARAMETER (nrec=123)          !Number of nuclear reactions.
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation.
 
 C----------COMMON AREAS.
       COMMON /rates/  f,r           !Reaction rates.
@@ -803,6 +803,98 @@ C........He+(pγ,2γ)HeH+.........Added by Ninja
 C........H2(p,e-)H3+.........Added by Ninja
        f(95) = 4.7e-9*((t9/300)**(-0.5))
 
+C........He+(d,γ)HeD+.........Added by Ninja
+       f(96) = 5.0e-16*((t9/300)**(-0.37))*ex(-t9/87600)
+     /         + 1.0e-19*((t9/300)**(-0.24))*ex(-t9/4000)
+     /         + 1.5e-21*ex(-200/t9)
+
+C........HeD+(p,d)HeD+.........Added by Ninja
+       f(97) = 8.0e-10*ex(-468/t9) 
+
+C........D(p,γ)HD+.........Added by Ninja
+       f(98) = 3.9e-19*((t9/300)**(1.8))*ex(-20/t9)
+     /         + 2*1.5e-9*((t9/300)**(-0.1))
+     |         + 1.05e-26**((t9/300)**(0.09))*ex(-t9/7000)
+
+C........HD+(H2,d)H3+.........Added by Ninja
+       f(99) = 1.05e-9
+
+C........HD+(e-,p)d.........Added by Ninja
+       f(100) = 3.4e-9*((t9/300)**(-0.4))
+
+C........HD+(p,H2)d.........Added by Ninja
+       f(101) = 1.0e-9*ex(-154/t9)
+
+C........D(d,p)HD+.........Added by Ninja
+       f(102) = 1.07e-9*((t9/300)**(0.062))*ex(-t9/41400)
+     |          + 7.5e-11*ex(-3820/t9)
+     |          + 2.1e-9
+     
+C........HeH(d,He)H3+.........Added by Ninja
+       f(103) = 1.43e-9*((t9/300)**(0.24))*ex(-t9/14800)
+
+C........HeH(p,He)HD+.........Added by Ninja
+       f(104) = 9.1e-10*((t9/300)**(0.13))*ex(-t9/33100)
+
+C........He(HD+,d)HeH+.........Added by Ninja
+       f(105) = 3.0e-10*ex(-6720/t9)    
+       
+C........He(HD+,p)HeD+.........Added by Ninja
+       f(106) = 3.0e-10*ex(-6720/t9)   
+
+C........H3(HD+,d)H2D+.........Added by Ninja
+       f(107) = 1.4e-9  
+
+C........H2D+(p,d)H3+.........Added by Ninja
+       f(108) = 1.0e-9*ex(-632/t9) 
+
+C........H2D+(d,HD)H3+.........Added by Ninja
+       f(109) = 1.0e-9*ex(-150/t9) 
+
+C........H2(d,γ)H2D+.........Added by Ninja
+       f(110) = 1.0e-20
+        
+C........HD(p,γ)H2D+.........Added by Ninja
+       f(111) = 1.0e-20
+
+C........HeD+(p,He)HD+.........Added by Ninja
+       f(112) = 9.1e-10*((t9/300)**(0.13))*ex(-t9/33100)
+
+C........HeH+(d,He)HD+.........Added by Ninja
+       f(113) = 9.1e-10*((t9/300)**(0.13))*ex(-t9/33100)
+
+C........HD+(p,d)H2.........Added by Ninja
+       f(114) = 1.0e-9*ex(-457/t9) 
+     |          + 7.5e-11*ex(-4240/t9)
+     |          + 1.0e-9*ex(-154/t9)
+
+C........HeH+(d,p)HeD+.........Added by Ninja
+       f(115) = 1.0e-9 
+
+C........HD+(d,p)H2D+.........Added by Ninja
+       f(116) = 2*1.05e-9 
+
+C........H3+(d,p)H2D+.........Added by Ninja
+       f(117) = 1.0e-9 
+
+C........H2D+(e-,p)HD+.........Added by Ninja
+       f(118) = 1.2e-8*((t9/300)**(-0.5)) 
+
+C........H2D+(e-,d)D+.........Added by Ninja
+       f(119) = 4.2e-9*((t9/300)**(-0.5)) 
+
+C........H2D+(e-,2p)D+.........Added by Ninja
+       f(120) = 4.38e-8*((t9/300)**(-0.5)) 
+
+C........H3+(e-,p)D .........Added by Ninja
+       f(121) = 4.0e-8*((t9/300)**(-0.5)) 
+
+C........H3+(e-,2p)p.........Added by Ninja
+       f(122) = 1.6e-7*((t9/300)**(-0.5)) 
+
+C........H3+(e-,2p)D .........Added by Ninja
+       f(123) = 2.3e-7*((t9/300)**(-0.5)) 
+             
       RETURN
 
 C----------REFERENCES-----------------------------------------------------------
@@ -819,8 +911,8 @@ C========================IDENTIFICATION DIVISION================================
       BLOCK DATA   
 
 C----------PARAMETERS.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. (Ninja)
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. (Ninja)
+      PARAMETER (nrec=123)          !Number of nuclear reactions. (Ninja)
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. (Ninja)
 
 C----------COMMON AREAS.
       COMMON /recpr0/ reacpr                         !Reaction parameter values.
@@ -867,19 +959,20 @@ C    --------------------------------
 C    1) N         7) Li6      13) B10      19) C13      25) O15
 C    2) P         8) Li7      14) B11      20) N13      26) O16
 C    3) H2        9) Be7      15) C11      21) C14      27) HeH
-C    4) H3       10) Li8      16) B12      22) N14
-C    5) He3      11) B8       17) C12      23) O14
-C    6) He4      12) Be9      18) N12      24) N15
+C    4) H3       10) Li8      16) B12      22) N14      28) HeD
+C    5) He3      11) B8       17) C12      23) O14      29) HD
+C    6) He4      12) Be9      18) N12      24) N15      30) H2D
 
 C-----------NUCLIDE DATA.
       DATA am /1.,1.,2.,3.,3.,4.,6.,7.,7.,8.,8.,9.,10.,11.,11.,12.,
-     |         12.,12.,13.,13.,14.,14.,14.,15.,15.,16.,5./ ! Ninja
+     |         12.,12.,13.,13.,14.,14.,14.,15.,15.,16.,5.,6.,3.,4 / ! Ninja
       DATA zm /0.,1.,1.,1.,2.,2.,3.,3.,4.,3.,5.,4.,5.,5.,6.,5.,
-     |         6.,7.,6.,7.,6.,7.,8.,7.,8.,8.,3./ ! Ninja
+     |         6.,7.,6.,7.,6.,7.,8.,7.,8.,8.,3.,4.,2.,3 / ! Ninja
       DATA dm /.008665,.007825,.014102,.016050,.016030,.002603,.015125,
      |         .016004,.016929,.022487,.024609,.012186,.012939,.009305,
      |         .011432,.014354,.000000,.018641,.003354,.005738,.003242,
-     |         .003074,.008597,.000108,.003070,-.005085,.01054/ ! Ninja
+     |         .003074,.008597,.000108,.003070,-.005085,.01054,.01,.01,
+     |         .01 /                                                    ! Ninja
 
 C----------REACTION RATE COEFFICIENTS (Ref 1).
       DATA ((reacpr(i,j),j=1,8),i=1,11) /
@@ -995,16 +1088,44 @@ C              ----  ---- -- -- -- -- --------- -------
      |            87.,3.,16.,6.,1.,24., 4.25 ,  88.47,     !B12(a,n)N15  
      |            88.,3.,19.,6.,1.,26., 5.79 ,  25.711/    !C13(a,n)O16
 
-      DATA ((reacpr(i,j),j=1,8),i=89,95) / ! Ninja
+      DATA ((reacpr(i,j),j=1,8),i=89,123) / ! Ninja
 C              reac# type n1 n2 n3 n4 rev-coeff q-value
 C              ----  ---- -- -- -- -- --------- -------
      |            89.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(H,γ)HeH+
-     |            90.,2., 3.,2.,0., 4.,     0 ,   77.23,      ! H2(p,γ)H3+
+     |            90.,2., 3.,2.,0., 4.,     0 ,   77.23,      ! H2(p,γ)H3+ [46,47]
      |            91.,3.,27.,3.,6., 4.,     0 ,   77.23,      ! HeH(d,He)H3+
      |            92.,3., 6.,3.,2.,27.,     0 ,   77.23,      ! He(H2+,H)HeH+
      |            93.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(p,γ)HeH+
      |            94.,2., 6.,2.,0.,27.,     0 ,   77.23,      ! He+(pγ,2γ)HeH+
-     |            95.,2., 3.,2.,0., 4.,     0 ,   77.23/      ! H2(p,e-)H3+
+     |            95.,2., 3.,2.,0., 4.,     0 ,   77.23,      ! H2(p,e-)H3+
+     |            96.,2., 6.,3.,0.,28.,     0 ,   77.23,      ! He+(d,γ)HeD+
+     |            97.,3.,28.,2.,3.,27.,     0 ,   77.23,      ! HeD+(p,d)HeH+
+     |            98.,2., 3.,2.,0.,29.,     0 ,   77.23,      !   D(p,γ)HD+
+     |            99.,3.,29.,3.,3., 4.,     0 ,   77.23,      ! HD+(H2,d)H3+
+     |           100.,2.,29.,0.,2., 3.,     0 ,   77.23,      ! HD+(e-,p)d
+     |           101.,3.,29.,2.,3., 3.,     0 ,   77.23,      ! HD+(p,H2)d
+     |           102.,3., 3.,3.,2.,29.,     0 ,   77.23,      !   D(d,p)HD+
+     |           103.,3.,27.,3.,6., 4.,     0 ,   77.23,      ! HeH(d,He)H3+ [45]
+     |           104.,3.,27.,2.,6.,29.,     0 ,   77.23,      ! HeH(p,He)HD+
+     |           105.,3.,6.,29.,3.,27.,     0 ,   77.23,      ! He(HD+,d)HeH+
+     |           106.,3.,6.,29.,2.,28.,     0 ,   77.23,      ! He(HD+,p)HeD+
+     |           107.,3.,4.,29.,3.,30.,     0 ,   77.23,      ! H3(HD+,d)H2D+
+     |           108.,3.,30.,2.,3., 4.,     0 ,   77.23,      ! H2D+(p,d)H3+
+     |           109.,3.,30.,3.,29.,4.,     0 ,   77.23,      ! H2D+(d,HD)H3+
+     |           110.,2.,2., 2.,0.,30.,     0 ,   77.23,      ! H2(d,γ)H2D+
+     |           111.,2.,29.,1.,0.,30.,     0 ,   77.23,      ! HD(p,γ)H2D+
+     |           112.,3.,28.,1.,6.,29.,     0 ,   77.23,      ! HeD+(p,He)HD+
+     |           113.,3.,27.,2.,6.,29.,     0 ,   77.23,      ! HeH+(d,He)HD+
+     |           114.,3.,29.,1.,2., 2.,     0 ,   77.23,      ! HD+(p,d)H2
+     |           115.,3.,27.,2.,1.,28.,     0 ,   77.23,      ! HeH+(d,p)HeD+
+     |           116.,3.,29.,2.,1.,30.,     0 ,   77.23,      ! HD+(d,p)H2D+
+     |           117.,3.,27.,2.,1.,28.,     0 ,   77.23,      ! H3+(d,p)H2D+
+     |           118.,3.,27.,2.,1.,28.,     0 ,   77.23,      ! H2D+(e-,p)HD+
+     |           119.,3.,27.,2.,1.,28.,     0 ,   77.23,      ! H2D+(e-,d)D+
+     |           120.,3.,27.,2.,1.,28.,     0 ,   77.23,      ! H2D+(e-,2p)D+
+     |           121.,3., 4.,0.,1., 2.,     0 ,   77.23,      ! H3+(e-,p)D     
+     |           122.,3., 4.,0.,1., 1.,     0 ,   77.23,      ! H3+(e-,2p)p
+     |           123.,3., 4.,1.,1., 2.,     0 ,   77.23/      ! H3+(e-,2p)D      
 
 C----------DEFAULT COMPUTATION PARAMETERS.
       DATA cy0    /.300/           !Default time step limiting constant.
@@ -1023,10 +1144,3 @@ C-----------DEFAULT VARIATIONAL PARAMETERS.
       DATA eta0   /6.14e-10/       !Default baryon-to-photon ratio. Ninja
 
       END
-
-
-
-
-
-
-

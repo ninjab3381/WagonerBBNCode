@@ -39,8 +39,8 @@ C       Version 4.1 (December 1991)
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=95)          !Number of nuclear reactions. - Ninja
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. - Ninja
+      PARAMETER (nrec=123)          !Number of nuclear reactions. - Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. - Ninja
 
 C----------COMMON AREAS.
       COMMON /recpr0/ reacpr                         !Reaction parameter values.
@@ -1085,10 +1085,10 @@ C     Activates computation routine.
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nrec=95)          !Number of nuclear reactions. - Ninja
+      PARAMETER (nrec=123)          !Number of nuclear reactions. - Ninja
       PARAMETER (lrec=64)          !Total # of nuclear reactions for irun = 2.
       PARAMETER (krec=34)          !Total # of nuclear reactions for irun = 3.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (lnuc=18)          !Total # of nuclides for irun = 2.
       PARAMETER (knuc=9)           !Total # of nuclides for irun = 3.
 
@@ -1399,7 +1399,7 @@ C     the screen
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number (previous value = 1).
       PARAMETER (iw=6)             !Output unit number (previous value = 1).
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (itmax=200)         !Maximum # of line to be printed. Ninja
 
 C----------COMMON AREAS.

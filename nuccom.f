@@ -21,7 +21,7 @@ C     Runge-Kutta computational routine
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (cl=1.e-16)        !Lower limit on size of time step.
 
 C----------COMMON AREAS.
@@ -180,8 +180,8 @@ C----------REMARKS.
 C     Sets initial conditions.
 
 C----------PARAMETERS.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. Ninja
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nrec=123)          !Number of nuclear reactions. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (const1=0.09615)   !Relation between time and temperature.
       PARAMETER (const2=6.6700e-8) !Gravitational constant.
 
@@ -381,7 +381,7 @@ C       - abundances
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (pi=3.141593)
 
 C----------COMMON AREAS.
@@ -537,7 +537,7 @@ C     Output accumulator.
 
 C----------PARAMETERS.
       PARAMETER (nvar=29)          !Number of variables to be evolved.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (itmax=200)         !Maximum # of lines to be printed. Ninja
 
 C----------COMMON AREAS.         
@@ -645,7 +645,7 @@ C----------REMARKS.
 C     Computes various temperature dependent thermodynamic quantities.
 
 C----------PARAMETER.
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
       PARAMETER (q=2.531)          !(mass(neutron)-mass(proton))/m(electron)
 
 C----------COMMON AREAS.         
@@ -1436,8 +1436,8 @@ C     Fills and solves matrix equation for dydt(i).
 C----------PARAMETERS.
       PARAMETER (ir=5)             !Input unit number.
       PARAMETER (iw=6)             !Output unit number.
-      PARAMETER (nrec=95)          !Number of nuclear reactions. Ninja
-      PARAMETER (nnuc=27)          !Number of nuclides in calculation. Ninja
+      PARAMETER (nrec=123)          !Number of nuclear reactions. Ninja
+      PARAMETER (nnuc=30)          !Number of nuclides in calculation. Ninja
 
 C-----------COMMON AREAS.
       COMMON /recpr/  iform,ii,jj,kk,ll,rev,q9       !Reaction parameters names.
@@ -1757,7 +1757,7 @@ C     Solves for new abundances using gaussian elimination
 C     with back substitution, no pivoting.
 
 C----------PARAMETERS.
-      PARAMETER (nnuc=27)          !Rank of matrix. - Ninja
+      PARAMETER (nnuc=30)          !Rank of matrix. - Ninja
       PARAMETER (mord=1)           !Higher order in correction.
       PARAMETER (eps=2.e-4)        !Tolerance for convergence (.ge. 1.e-7).
 

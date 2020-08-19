@@ -17,7 +17,7 @@ with open(filename1, 'r') as f:
     next(f)
     for line in f:
         fields = line.split()
-        temp = fields[0].strip
+        temp = fields[0].strip()
         temp_list.append(int(temp[-3:]))
         h3_abundance = fields[4].strip()
         h3_abundance_list.append(math.log(float(h3_abundance)))
@@ -45,9 +45,9 @@ fig, axs = plt.subplots(2, 2)
 fig.set_figheight(12)
 fig.set_figwidth(10)
 
-axs[0, 0].plot(temp_list, heh_abundance_list)
-axs[0, 0].set_title('HeH abundance vs Temp (T9)')
-axs[0, 0].set_xlabel('log(temp)')
+axs[0, 0].plot(time_list, heh_abundance_list)
+axs[0, 0].set_title('HeH abundance vs Time')
+axs[0, 0].set_xlabel('log(time)')
 axs[0, 0].set_ylabel('log(HeH abundance)')
 
 axs[0, 1].plot(z_list, heh_abundance_list)
