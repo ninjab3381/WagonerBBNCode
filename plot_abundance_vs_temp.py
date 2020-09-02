@@ -47,25 +47,25 @@ fig.set_figwidth(10)
 
 axs[0, 0].plot(time_list, heh_abundance_list)
 axs[0, 0].set_title('HeH abundance vs Time')
-axs[0, 0].set_xlabel('log(time)')
-axs[0, 0].set_ylabel('log(HeH abundance)')
+axs[0, 0].set_xlabel('ln(time)')
+axs[0, 0].set_ylabel('ln(HeH abundance)')
 
 axs[0, 1].plot(z_list, heh_abundance_list)
 axs[0, 1].invert_xaxis()
 axs[0, 1].set_title('HeH abundance vs Redshift')
-axs[0, 1].set_xlabel('log(Redshift)')
-axs[0, 1].set_ylabel('log(HeH abundance)')
+axs[0, 1].set_xlabel('ln(Redshift)')
+axs[0, 1].set_ylabel('ln(HeH abundance)')
 
 axs[1, 0].plot(time_list, h3_abundance_list)
 axs[1, 0].set_title('H3 abundance vs Time')
-axs[1, 0].set_xlabel('log(time)')
-axs[1, 0].set_ylabel('log(H3 abundance)')
+axs[1, 0].set_xlabel('ln(time)')
+axs[1, 0].set_ylabel('ln(H3 abundance)')
 
 axs[1, 1].plot(z_list, h3_abundance_list)
 axs[1, 1].invert_xaxis()
 axs[1, 1].set_title('H3 abundance vs Redshift')
-axs[1, 1].set_xlabel('log(Redshift)')
-axs[1, 1].set_ylabel('log(H3 abundance)')
+axs[1, 1].set_xlabel('ln(Redshift)')
+axs[1, 1].set_ylabel('ln(H3 abundance)')
 
 fig.subplots_adjust(hspace=.5)
 

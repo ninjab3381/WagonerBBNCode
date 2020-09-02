@@ -43,24 +43,24 @@ fig.set_figwidth(10)
 axs[0,0].plot(temp_list, heh_abundance_list)
 axs[0,0].set_title('HeH abundance vs Temp(T9)')
 axs[0,0].set_xlabel('temp_exp')
-axs[0,0].set_ylabel('log(HeH abundance)')
+axs[0,0].set_ylabel('ln(HeH abundance)')
 axs[0,0].invert_xaxis()
 
 axs[0,1].plot(temp_list, h3_abundance_list)
 axs[0,1].set_title('H3 abundance vs Temp(T9)')
 axs[0,1].set_xlabel('temp_exp')
-axs[0,1].set_ylabel('log(H3 abundance)')
+axs[0,1].set_ylabel('ln(H3 abundance)')
 axs[0,1].invert_xaxis()
 
 axs[1,0].plot(time_list, heh_abundance_list)
 axs[1,0].set_title('HeH abundance vs Time')
 axs[1,0].set_xlabel('time_exp')
-axs[1,0].set_ylabel('log(HeH abundance)')
+axs[1,0].set_ylabel('ln(HeH abundance)')
 
 axs[1,1].plot(time_list, h3_abundance_list)
 axs[1,1].set_title('H3 abundance vs Time')
 axs[1,1].set_xlabel('time_exp')
-axs[1,1].set_ylabel('log(H3 abundance)')
+axs[1,1].set_ylabel('ln(H3 abundance)')
 
 fig.subplots_adjust(hspace=.5)
 
