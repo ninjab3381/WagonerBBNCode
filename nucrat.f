@@ -1133,7 +1133,7 @@ C----------DEFAULT COMPUTATION PARAMETERS.
       DATA t9i0   /1.00e+02/       !Default initial temperature.
       DATA t9f0   /1.00e-07/       !Default final temperature. Ninja
       DATA ytmin0 /1.00e-25/       !Default smallest abundances allowed.
-      DATA inc0   /30/             !Default accumulation increment.
+      DATA inc0   /16/             !Default accumulation increment.
 C-----------DEFAULT MODEL PARAMETERS.
       DATA c0     /1.00,885.7,3.0/ !Default variation of 3 parameters.
       DATA cosmo0 /0.00/           !Default cosmological constant.
