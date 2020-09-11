@@ -1,4 +1,5 @@
 import math
+import numpy as np
 import matplotlib.pyplot as plt
 
 filename1 = 'new123_top_only.dat'
@@ -51,25 +52,33 @@ heh_abundance_list = [heh_h * h for heh_h, h in zip(heh_h_abundance_list, h_abun
 
 heh_he4_ratio_list = [math.log(heh/he4) for heh, he4 in zip(heh_abundance_list, he4_abundance_list)]
 h3_h2_ratio_list = [math.log(h3_h/h2_h) for h2_h, h3_h in zip(h2_h_abundance_list, h3_h_abundance_list)]
+heh_h2_ratio_list = [math.log(heh_h/h2_h) for heh_h, h2_h in zip(heh_h_abundance_list, h2_h_abundance_list)]
 
 print(heh_he4_ratio_list)
 print(h3_h2_ratio_list)
+print(heh_h2_ratio_list)
 
-fig, axs = plt.subplots(1,2)
+fig, axs = plt.subplots(2,2)
 fig.set_figheight(12)
 fig.set_figwidth(10)
 
-axs[0].plot(temp_list, heh_he4_ratio_list)
-axs[0].set_title('HeH/He4 abundance ratio vs Temp(T9)')
-axs[0].set_xlabel('temp_exp')
-axs[0].set_ylabel('ln(HeH/He4 abundance ratio)')
-axs[0].invert_xaxis()
+axs[0,0].plot(temp_list, heh_he4_ratio_list)
+axs[0,0].set_title('ln(HeH/He4) abundance ratio vs Temp(T9)')
+axs[0,0].set_xlabel('temp_exp')
+axs[0,0].set_ylabel('ln(HeH/He4 abundance ratio)')
+axs[0,0].invert_xaxis()
 
-axs[1].plot(temp_list, h3_h2_ratio_list)
-axs[1].set_title('H3/H2 abundance ratio vs Temp(T9)')
-axs[1].set_xlabel('temp_exp')
-axs[1].set_ylabel('ln(H3/H2 abundance ratio)')
-axs[1].invert_xaxis()
+axs[0,1].plot(temp_list, h3_h2_ratio_list)
+axs[0,1].set_title('H3/H2 abundance ratio vs Temp(T9)')
+axs[0,1].set_xlabel('temp_exp')
+axs[0,1].set_ylabel('ln(H3/H2 abundance ratio)')
+axs[0,1].invert_xaxis()
+
+axs[1,0].plot(temp_list, heh_h2_ratio_list)
+axs[1,0].set_title('HeH/H2 abundance ratio vs Temp(T9)')
+axs[1,0].set_xlabel('temp_exp')
+axs[1,0].set_ylabel('ln(HeH/H2 abundance ratio)')
+axs[1,0].invert_xaxis()
 
 fig.subplots_adjust(hspace=.5)
 
