@@ -330,6 +330,11 @@ C50--------SET ABUNDANCES FOR REST OF NUCLIDES----------------------------------
         y(i)  = ytmin              !Set rest to minimum abundance.
         y0(i) = y(i)               !Init abundances at beginning of iteration.
       END DO
+
+      DO i = 1,isize
+        WRITE (6, *) i, y0(i)
+      END DO
+
       CALL rate0                   !Compute weak decay rates.
       RETURN
 
